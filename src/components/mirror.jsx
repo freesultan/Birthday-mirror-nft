@@ -1,7 +1,6 @@
 import React from 'react'
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
-import { useState } from "react";
 import ColorHash from 'color-hash'
 
 
