@@ -26,16 +26,18 @@ const Birthinput = () => {
           onChange={(newValue) => { setBirthdate(newValue.toLocaleString('YYYYMMDDHH')); setShowImage(false) }} />
       </div>
       <button className="border drop-shadow shadow-lg border-green-600 p-2 bg-green-900 rounded-lg text-slate-300 hover:text-yellow-300"
-        onClick={() => { setShowImage(true); }}
+        onClick={() => { if (birthdate === 'Invalid Date') {return}; setShowImage(true); }}
 
       >Generate my Birth time Image</button>
-      <h2 className='p-2 m-2 min-w-[250px]   font-bold border-green-600 drop-shadow-sm '> {birthdate == null ? '' : `You born on ${birthdate}`}</h2>
-      {showImage && birthdate &&
+      {showImage && birthdate && <>
+        <h2 className='p-2 m-2 min-w-[250px]   font-bold border-green-600 drop-shadow-sm '> {birthdate == null ? '' : `You born on ${birthdate}`}</h2>
+
         <div className=' shadow-md drop-shadow-lg border border-2 rounded border-green-600 w-[400px] h-[400px] overflow-hidden'>
 
           <Mirror birthdate={birthdate} />
 
         </div>
+      </>
       }
 
     </div>
